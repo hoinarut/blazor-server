@@ -22,20 +22,19 @@
             <tbody>
             @foreach (var pizza in _todaysPizzas)
             {
-                <tr>
-                    <td>@pizza.Name</td>
-                    <td>@pizza.Description</td>
-                    <td>@pizza.Vegetarian</td>
-                    <td>@pizza.Vegan</td>
-                    <td>@pizza.Price</td>
-                </tr>
+                @* <tr> *@
+                @*     <td>@pizza.Name</td> *@
+                @*     <td>@pizza.Description</td> *@
+                @*     <td>@pizza.Vegetarian</td> *@
+                @*     <td>@pizza.Vegan</td> *@
+                @*     <td>@pizza.Price</td> *@
+                @* </tr> *@
             }
             </tbody>
         </table>
     }
 </div>
 @using BlazingPizza.Data;
-@using Pizza = BlazingPizza.Data.Pizza
 @inject PizzaService PizzaSvc;
 
 @code
@@ -44,6 +43,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        _todaysPizzas = await PizzaSvc.GetPizzasAsync();
+    // _todaysPizzas = await PizzaSvc.GetPizzasAsync();
+        _todaysPizzas = new List<Pizza>();
     }
 }
